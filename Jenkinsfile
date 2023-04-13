@@ -7,13 +7,13 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'cd spring-petclinic && ./mvnw package'
+                sh 'cd /var/lib/jenkins/.jenkins/workspace/emma_pipeline && ./mvnw package'
             }
         }
 
         stage('Run') {
             steps {
-                sh 'cd spring-petclinic && java -jar target/*.jar'
+                sh 'cd /var/lib/jenkins/.jenkins/workspace/emma_pipeline && java -jar target/*.jar'
             }
         }
     }
