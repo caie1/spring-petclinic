@@ -1,13 +1,10 @@
+#!/usr/bin/env groovy
+properties([pipelineTriggers([githubPush()])])
+
 pipeline {
     agent any
 
     stages {
-        stage('Checkout') {
-            steps {
-                git branch: 'main', url: 'git@github.com:caie1/spring-petclinic.git'
-            }
-        }
-
         stage('Build') {
             steps {
                 sh 'cd spring-petclinic && ./mvnw package'
